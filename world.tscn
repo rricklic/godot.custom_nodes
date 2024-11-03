@@ -1,0 +1,108 @@
+[gd_scene load_steps=18 format=3 uid="uid://cqcjuidmtfo3o"]
+
+[ext_resource type="Script" path="res://world.gd" id="1_ufgi6"]
+[ext_resource type="PackedScene" uid="uid://bdwcjkjrvit11" path="res://scenes/player/player.tscn" id="2_1c1kg"]
+[ext_resource type="PackedScene" uid="uid://1pnkxhmej37e" path="res://components/dramatic_area/dramatic_area.tscn" id="3_3safm"]
+[ext_resource type="PackedScene" uid="uid://c0gdomfeps7ka" path="res://managers/time_scale/time_scale_manager.tscn" id="4_8sh8a"]
+[ext_resource type="PackedScene" uid="uid://b37vjd71ylwpi" path="res://components/hit_area/hit_area.tscn" id="5_2g7pn"]
+[ext_resource type="PackedScene" uid="uid://db5g1qr3iuuay" path="res://managers/camera/camera_manager.tscn" id="5_5qwoo"]
+[ext_resource type="PackedScene" uid="uid://1s3vtctu4kxg" path="res://managers/shader/shader_manager.tscn" id="5_rh5h7"]
+[ext_resource type="Shader" path="res://shaders/texture/flash.gdshader" id="6_04nlf"]
+[ext_resource type="Script" path="res://resources/model/hit_area_effect/hit_area_effect.gd" id="6_wet0t"]
+[ext_resource type="PackedScene" uid="uid://twe5xfp074nv" path="res://ui/main_menu.tscn" id="9_iknm7"]
+[ext_resource type="PackedScene" uid="uid://d1cwiyghqxpv8" path="res://components/wiggle_polygon.tscn" id="11_pk46g"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bsss7"]
+radius = 144.886
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_vtwh6"]
+radius = 147.513
+
+[sub_resource type="Resource" id="Resource_grtix"]
+script = ExtResource("6_wet0t")
+type = 2
+amount = 0
+duration = 2.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_e656f"]
+radius = 88.3629
+
+[sub_resource type="Resource" id="Resource_h6yjq"]
+script = ExtResource("6_wet0t")
+type = 0
+amount = 3
+duration = -1.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k6431"]
+radius = 100.648
+
+[node name="World" type="Node2D"]
+script = ExtResource("1_ufgi6")
+
+[node name="Player" parent="." instance=ExtResource("2_1c1kg")]
+
+[node name="DramaticArea" parent="." instance=ExtResource("3_3safm")]
+position = Vector2(312, 232)
+slowmo_time_scale = 0.25
+zoom_in_amount = Vector2(2, 2)
+
+[node name="CollisionShape2D" parent="DramaticArea" index="0"]
+shape = SubResource("CircleShape2D_bsss7")
+
+[node name="DramaticArea2" parent="." instance=ExtResource("3_3safm")]
+position = Vector2(1128, 304)
+
+[node name="CollisionShape2D" parent="DramaticArea2" index="0"]
+shape = SubResource("CircleShape2D_vtwh6")
+
+[node name="HitAreaStun" parent="." instance=ExtResource("5_2g7pn")]
+position = Vector2(264, 496)
+faction = 2
+effect = SubResource("Resource_grtix")
+
+[node name="CollisionShape2D" parent="HitAreaStun" index="0"]
+shape = SubResource("CircleShape2D_e656f")
+
+[node name="HitAreaDamage" parent="." instance=ExtResource("5_2g7pn")]
+position = Vector2(568, 608)
+faction = 2
+effect = SubResource("Resource_h6yjq")
+
+[node name="CollisionShape2D" parent="HitAreaDamage" index="0"]
+shape = SubResource("CircleShape2D_k6431")
+
+[node name="Managers" type="Node" parent="."]
+
+[node name="TimeScaleManager" parent="Managers" instance=ExtResource("4_8sh8a")]
+unique_name_in_owner = true
+
+[node name="CameraManager" parent="Managers" instance=ExtResource("5_5qwoo")]
+unique_name_in_owner = true
+
+[node name="ShaderManager" parent="Managers" instance=ExtResource("5_rh5h7")]
+unique_name_in_owner = true
+shader = ExtResource("6_04nlf")
+
+[node name="UI" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="MainMenu" parent="UI" instance=ExtResource("9_iknm7")]
+
+[node name="WigglePolygon" parent="." instance=ExtResource("11_pk46g")]
+position = Vector2(960, 624)
+color = Color(0, 1, 1, 1)
+polygon = PackedVector2Array(24, -8, 48, -24, 88, -32, 136, 0, 144, 48, 112, 88, 56, 104, 24, 96, -8, 72, -8, 32)
+max_offset = 8
+duration = 0.15
+
+[node name="WigglePolygon2" parent="." instance=ExtResource("11_pk46g")]
+position = Vector2(1096, 584)
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(24, -56, 160, -72, 200, 32, 96, 40, 136, 0, 128, -32, 48, 8)
+
+[editable path="Player"]
+[editable path="Player/HurtArea"]
+[editable path="DramaticArea"]
+[editable path="DramaticArea2"]
+[editable path="HitAreaStun"]
+[editable path="HitAreaDamage"]

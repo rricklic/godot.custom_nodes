@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bv20e8suuiasa"]
+
+[ext_resource type="Script" path="res://components/player_movement/tank_movement_component.gd" id="1_fo44r"]
+
+[node name="TankMovementComponent" type="Node"]
+script = ExtResource("1_fo44r")

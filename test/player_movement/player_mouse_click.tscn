@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://jeijukgv02jb"]
+
+[ext_resource type="Texture2D" uid="uid://bpcvx1jeptj4h" path="res://icon.svg" id="1_ioulb"]
+[ext_resource type="PackedScene" uid="uid://djk82dlrff2j4" path="res://components/player_movement/mouse_click_movement_component.tscn" id="2_v2aa2"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w36u4"]
+size = Vector2(64, 64)
+
+[node name="PlayerMouseClick" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_ioulb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w36u4")
+
+[node name="MouseClickMovementComponent" parent="." instance=ExtResource("2_v2aa2")]

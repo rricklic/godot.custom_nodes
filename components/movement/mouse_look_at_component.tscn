@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://c16q8q6eyc4pf"]
+
+[ext_resource type="Script" path="res://components/player_movement/mouse_look_at_movment_component.gd" id="1_mk6ou"]
+
+[node name="MouseLookAtComponent" type="Node"]
+script = ExtResource("1_mk6ou")

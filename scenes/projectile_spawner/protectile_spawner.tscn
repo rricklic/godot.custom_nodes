@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfba3coj06470"]
+
+[ext_resource type="Script" path="res://scenes/projectile_spawner/protectile_spawner.gd" id="1_232d5"]
+[ext_resource type="Texture2D" uid="uid://bpcvx1jeptj4h" path="res://icon.svg" id="2_bi3l5"]
+[ext_resource type="PackedScene" uid="uid://bnu7rbkmtl6w6" path="res://scenes/projectile/types/bullet1.tscn" id="2_fbnqu"]
+[ext_resource type="Script" path="res://components/movement/mouse_look_at_component.gd" id="4_0rupu"]
+
+[node name="ProtectileSpawner" type="Node2D" node_paths=PackedStringArray("spawn_to_node")]
+script = ExtResource("1_232d5")
+spawn_to_node = NodePath("MouseLookAtComponent")
+projectile_scene = ExtResource("2_fbnqu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -3.8147e-06)
+scale = Vector2(1.5, 0.4375)
+texture = ExtResource("2_bi3l5")
+
+[node name="SpawnPoint" type="Marker2D" parent="."]
+position = Vector2(88, 0)
+
+[node name="MouseLookAtComponent" type="Node" parent="."]
+script = ExtResource("4_0rupu")
+rotation_speed = 360.0

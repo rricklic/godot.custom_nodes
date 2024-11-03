@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="HitAreaEffect" load_steps=2 format=3 uid="uid://0i7q2xx6dpyf"]
+
+[ext_resource type="Script" path="res://resources/model/hit_area_effect/hit_area_effect.gd" id="1_jl08o"]
+
+[resource]
+script = ExtResource("1_jl08o")
+type = 1
+amount = 1
+duration = 5.0

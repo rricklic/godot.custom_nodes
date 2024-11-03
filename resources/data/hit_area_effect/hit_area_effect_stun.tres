@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="HitAreaEffect" load_steps=2 format=3 uid="uid://de81opb168vd5"]
+
+[ext_resource type="Script" path="res://resources/model/hit_area_effect/hit_area_effect.gd" id="1_btqfe"]
+
+[resource]
+script = ExtResource("1_btqfe")
+type = 2
+amount = 0
+duration = 2.0

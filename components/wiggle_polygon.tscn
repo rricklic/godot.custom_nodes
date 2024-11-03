@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://d1cwiyghqxpv8"]
+
+[ext_resource type="Script" path="res://components/wiggle_polygon.gd" id="1_ydn0c"]
+
+[node name="WigglePolygon" type="Polygon2D"]
+script = ExtResource("1_ydn0c")
+
+[node name="Timer" type="Timer" parent="."]

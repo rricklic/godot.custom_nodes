@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://cql38oq21tvsr"]
+
+[ext_resource type="Script" path="res://managers/time_scale/time_scale_component.gd" id="1_liksa"]
+
+[node name="TimeScaleComponent" type="Node"]
+script = ExtResource("1_liksa")

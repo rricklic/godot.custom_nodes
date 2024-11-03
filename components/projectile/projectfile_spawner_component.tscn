@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://be0idixotmt7p"]
+
+[ext_resource type="Script" path="res://components/projectile/projectfile_spawner_component.gd" id="1_mp3vo"]
+
+[node name="ProjectfileSpawnerComponent" type="Node"]
+script = ExtResource("1_mp3vo")

@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bwbidg31s5q7b"]
+
+[ext_resource type="Script" path="res://components/health/health_component.gd" id="1_85qwd"]
+
+[node name="HealthComponent" type="Node"]
+process_mode = 4
+physics_interpolation_mode = 2
+auto_translate_mode = 2
+script = ExtResource("1_85qwd")

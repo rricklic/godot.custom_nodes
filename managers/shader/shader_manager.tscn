@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://1s3vtctu4kxg"]
+
+[ext_resource type="Script" path="res://managers/shader/shader_manager.gd" id="1_bvwy4"]
+
+[node name="ShaderManager" type="Node"]
+script = ExtResource("1_bvwy4")

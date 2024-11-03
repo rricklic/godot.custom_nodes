@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ue5hpxe7het5"]
+
+[ext_resource type="Script" path="res://components/movement/bobbing_movement_component.gd" id="1_56ghv"]
+
+[node name="BobbingMovementComponent" type="Node"]
+script = ExtResource("1_56ghv")

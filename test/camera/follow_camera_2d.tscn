@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://b1jxtu13sbnpp"]
+
+[ext_resource type="PackedScene" uid="uid://cnmqy7lkgaj50" path="res://components/movement/follow_movement_component.tscn" id="1_eakka"]
+[ext_resource type="PackedScene" uid="uid://ca53erao7iiqk" path="res://components/collision/ground_collider_component.tscn" id="2_c2fgp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xsekb"]
+size = Vector2(52, 29.5)
+
+[node name="Camera2D" type="Camera2D"]
+
+[node name="FollowMovementComponent" parent="." instance=ExtResource("1_eakka")]
+
+[node name="GroundColliderComponent" parent="." instance=ExtResource("2_c2fgp")]
+
+[node name="CollisionShape2D" parent="GroundColliderComponent" index="0"]
+position = Vector2(0, 48)
+shape = SubResource("RectangleShape2D_xsekb")
+
+[editable path="GroundColliderComponent"]

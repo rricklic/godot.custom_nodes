@@ -1,0 +1,52 @@
+[gd_scene load_steps=11 format=3 uid="uid://bdwcjkjrvit11"]
+
+[ext_resource type="Script" path="res://scenes/player/player.gd" id="1_1ch70"]
+[ext_resource type="Texture2D" uid="uid://bpcvx1jeptj4h" path="res://icon.svg" id="2_ets7n"]
+[ext_resource type="PackedScene" uid="uid://bf2hhyy7qalte" path="res://components/hurt_area/hurt_area.tscn" id="3_mfudi"]
+[ext_resource type="Script" path="res://managers/camera/camera_component.gd" id="4_c06p2"]
+[ext_resource type="Script" path="res://managers/time_scale/time_scale_component.gd" id="5_67m4o"]
+[ext_resource type="Script" path="res://managers/shader/shader_component.gd" id="6_3ujb0"]
+[ext_resource type="Script" path="res://components/health/health_component.gd" id="7_bx4m3"]
+[ext_resource type="Script" path="res://components/player_movement/topdown_movement_component.gd" id="8_y70ir"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_epuh3"]
+size = Vector2(128, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_24y8h"]
+radius = 72.4431
+
+[node name="Player" type="CharacterBody2D"]
+position = Vector2(752, 448)
+script = ExtResource("1_1ch70")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_ets7n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_epuh3")
+
+[node name="HurtArea" parent="." instance=ExtResource("3_mfudi")]
+faction = 1
+
+[node name="CollisionShape2D" parent="HurtArea" index="0"]
+shape = SubResource("CircleShape2D_24y8h")
+
+[node name="TimeScaleComponent" type="Node" parent="."]
+script = ExtResource("5_67m4o")
+
+[node name="CameraComponent" type="Node" parent="."]
+script = ExtResource("4_c06p2")
+
+[node name="ShaderComponent" type="Node" parent="."]
+script = ExtResource("6_3ujb0")
+
+[node name="HealthComponent" type="Node" parent="."]
+script = ExtResource("7_bx4m3")
+health = 10
+
+[node name="TopDownMovementComponent" type="Node" parent="."]
+script = ExtResource("8_y70ir")
+
+[editable path="HurtArea"]

@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://1pnkxhmej37e"]
+
+[ext_resource type="Script" path="res://components/dramatic_area/dramatic_area.gd" id="1_5kto8"]
+[ext_resource type="Script" path="res://managers/time_scale/time_scale_component.gd" id="2_x8wpv"]
+[ext_resource type="Script" path="res://managers/camera/camera_component.gd" id="3_5amdx"]
+
+[node name="DramaticArea" type="Area2D"]
+script = ExtResource("1_5kto8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+
+[node name="TimeScaleComponent" type="Node" parent="."]
+script = ExtResource("2_x8wpv")
+
+[node name="CameraComponent" type="Node" parent="."]
+script = ExtResource("3_5amdx")

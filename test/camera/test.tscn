@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://bp0ot0lke8wbr"]
+
+[ext_resource type="PackedScene" uid="uid://dwbpcmcobaip3" path="res://test/camera/player.tscn" id="1_6ib0p"]
+[ext_resource type="PackedScene" uid="uid://b1jxtu13sbnpp" path="res://test/camera/follow_camera_2d.tscn" id="2_l72e6"]
+[ext_resource type="Texture2D" uid="uid://bpcvx1jeptj4h" path="res://icon.svg" id="3_5vult"]
+[ext_resource type="Script" path="res://test/camera/sprite_2d.gd" id="4_e5x2w"]
+
+[node name="Test" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_mask = 0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D"]
+polygon = PackedVector2Array(-1424, 688, 1065.92, 552, 3128, 368, 5104, 384, 6864, -440, 8560, -672, 9784, -376, 10912, 8, 11968, 112, 13248, -552, 14944, -832, 15024, 3272, 12968, 3144, 7576, 2968, 2000, 2616, -2056, 2720)
+
+[node name="Player" parent="." instance=ExtResource("1_6ib0p")]
+position = Vector2(128, 568)
+collision_layer = 2
+
+[node name="FollowCamera2D" parent="." instance=ExtResource("2_l72e6")]
+
+[node name="FollowMovementComponent" parent="FollowCamera2D" index="0" node_paths=PackedStringArray("target")]
+target = NodePath("../../Player")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(232, 200)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_5vult")
+script = ExtResource("4_e5x2w")
+
+[editable path="FollowCamera2D"]
+[editable path="FollowCamera2D/GroundColliderComponent"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0jpaednixdyq"]
+
+[ext_resource type="Script" path="res://components/player_movement/topdown_movement_component.gd" id="1_wh5bg"]
+
+[node name="TopdownMovementComponent" type="Node"]
+script = ExtResource("1_wh5bg")

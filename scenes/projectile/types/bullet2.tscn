@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://cbpf1rw6exfow"]
+
+[ext_resource type="PackedScene" uid="uid://bekfcvqt14fjo" path="res://scenes/projectile/projectile.tscn" id="1_v54jt"]
+[ext_resource type="Texture2D" uid="uid://bpcvx1jeptj4h" path="res://icon.svg" id="2_ysl6h"]
+
+[node name="Bullet2" instance=ExtResource("1_v54jt")]
+texture = ExtResource("2_ysl6h")
+damage_amount = 200
+speed = 250.0
+
+[editable path="HitArea"]

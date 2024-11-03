@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://ddwe3ky0lhkh8"]
+
+[ext_resource type="Texture2D" uid="uid://bpcvx1jeptj4h" path="res://icon.svg" id="1_elv5u"]
+[ext_resource type="PackedScene" uid="uid://bh7cfhne7ylja" path="res://components/player_movement/grid_movement_component.tscn" id="2_ea1ox"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w36u4"]
+size = Vector2(64, 64)
+
+[node name="PlayerGrid" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_elv5u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_w36u4")
+
+[node name="GridMovementComponent" parent="." instance=ExtResource("2_ea1ox")]

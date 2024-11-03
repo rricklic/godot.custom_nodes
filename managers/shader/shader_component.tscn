@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bc0ctjf7s7dr1"]
+
+[ext_resource type="Script" path="res://managers/shader/shader_component.gd" id="1_jxbgd"]
+
+[node name="ShaderComponent" type="Node"]
+script = ExtResource("1_jxbgd")
